@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  country: MyString
+  established: MyString
+  description: MyText
+  sports_id: 
+
+two:
+  name: MyString
+  country: MyString
+  established: MyString
+  description: MyText
+  sports_id: 

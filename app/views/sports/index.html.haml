@@ -1,0 +1,26 @@
+%h1
+  Listing Sports[Categories]
+
+%p
+  = link_to "New Sports", new_sport_path
+
+%table{border:1}
+  %tr
+    %th
+      Sports
+    %th
+      Description
+
+  - @sports.each do |sport|
+    %tr
+      %td
+        = "#{sport.title}"
+      %td
+        = "#{sport.description}"
+      %td
+        = link_to "Show", sport_path(sport)
+      %td
+        = link_to "edit", edit_sport_path(sport)
+      %td
+        = link_to "delete", sport_path(sport), method: :delete, data: {confirm: "Are you sure?"}
+
