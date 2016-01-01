@@ -1,9 +1,11 @@
+# require 'pry'
 class SportsController < ApplicationController
   def new
     @sport = Sport.new
   end
 
   def create
+    binding.pry
     @sport = Sport.new(sport_params)
 
     if @sport.save
@@ -45,6 +47,6 @@ class SportsController < ApplicationController
   private
 
   def sport_params
-    params.require(:sport).permit(:title, :description)
+    params.require(:sport).permit(:title, :image_link, :description)
   end
 end

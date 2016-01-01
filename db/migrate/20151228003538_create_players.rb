@@ -4,7 +4,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :name
       t.string :position
       t.string :country
-      t.string :image_link
+      t.text :image_link
       t.text :description
       t.references :club, index: true, foreign_key: true
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'clubs#index'
+  root 'sports#index'
   # root 'welcome#index'
 
   # Example of regular route:
@@ -14,6 +14,14 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :sports
+
+  resources :sports do
+    resources :clubs
+
+    resources :clubs do
+      resources :players
+    end
+  end
 
   # Example resource route with options:
   #   resources :products do

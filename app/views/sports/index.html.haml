@@ -1,26 +1,17 @@
-%h1
-  Listing Sports[Categories]
+.sports-wrapper.row
+  %h1
+    Sports Categories
 
-%p
-  = link_to "New Sports", new_sport_path
-
-%table{border:1}
-  %tr
-    %th
-      Sports
-    %th
-      Description
-
-  - @sports.each do |sport|
-    %tr
-      %td
-        = "#{sport.title}"
-      %td
-        = "#{sport.description}"
-      %td
-        = link_to "Show", sport_path(sport)
-      %td
+  %p
+    = link_to "New Sports", new_sport_path
+  -@sports.each do |sport|
+    .sport
+      .sport-head
+        .name #{sport.title}
+      .image.center-block
+        = link_to image_tag(sport.image_link, :'width' => '640px'), sport_clubs_path(sport), class: 'img-responsive'
+      %p.caption #{sport.description}
+      %p.actions
+        = link_to "show", sport_path(sport)
         = link_to "edit", edit_sport_path(sport)
-      %td
         = link_to "delete", sport_path(sport), method: :delete, data: {confirm: "Are you sure?"}
-

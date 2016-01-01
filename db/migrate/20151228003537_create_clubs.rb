@@ -2,7 +2,7 @@ class CreateClubs < ActiveRecord::Migration
   def change
     create_table :clubs do |t|
       t.string :name
-      t.string :image_link
+      t.text :image_link
       t.string :country
       t.string :established
       t.text :description

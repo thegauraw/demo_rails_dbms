@@ -2,9 +2,7 @@
   %strong Title:
   ="#{@sport.title}"
 
-%p
-  %strong Description:
-  ="#{@sport.description}"
+%img{ src: "#{@sport.image_link}", title: @sport.description }
 
 %p
   = link_to "Back", sports_path

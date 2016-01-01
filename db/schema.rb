@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20151228003538) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
-    t.string   "image_link"
+    t.text     "image_link"
     t.string   "country"
     t.string   "established"
     t.text     "description"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20151228003538) do
     t.string   "name"
     t.string   "position"
     t.string   "country"
-    t.string   "image_link"
+    t.text     "image_link"
     t.text     "description"
     t.integer  "club_id"
     t.datetime "created_at",  null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20151228003538) do
 
   create_table "sports", force: :cascade do |t|
     t.string   "title"
-    t.string   "image_link"
+    t.text     "image_link"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
