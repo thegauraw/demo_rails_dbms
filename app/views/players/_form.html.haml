@@ -1,14 +1,19 @@
 .form-wrapper{style: "width: 100%"}
-  = form_for @sport do |f|
-    - if @sport.errors.any?
+  = form_for [@sport, @club, @player] do |f|
+    - if @player.errors.any?
       .error_msg
-        %h3 #{pluralize(@sport.errors.count, 'errors')} errors occurred.
+        %h3 #{pluralize(@player.errors.count, 'errors')} errors occurred.
         %ul
-          - @sport.errors.full_messages.each do |msg|
+          - @player.errors.full_messages.each do |msg|
             %li #{msg}
     .row
       .form-group
-        = f.text_field :title, placeholder: 'Sports Title / Category', class: 'input-lg form-control'
+        = f.text_field :name, placeholder: 'Player\'s Name', class: 'input-lg form-control'
+    .row
+      .col-lg-6.form-group
+        = f.text_field :country, placeholder: 'Country', class: 'input-lg form-control'
+      .col-lg-6.form-group
+        = f.text_field :position, placeholder: 'Position', class: 'input-lg form-control'
     .row
       .form-group.text-center
         = f.text_field :image_link, class: 'form-control', placeholder: "Image Link"
@@ -19,3 +24,10 @@
     .row
       .form-group.text-center
         = f.button :submit, class: 'btn-success'
+
+
+/ name
+/ image_link
+/ country
+/ position
+/ description

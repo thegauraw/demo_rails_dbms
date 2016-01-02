@@ -1,1 +1,26 @@
-%h1 Player Gallery (Coming Soon)
+.sports-wrapper.row
+  %h1 #{@club.name} Players
+
+  %p
+    = link_to "Add New Player", new_sport_club_player_path
+
+  -@club.players.each do |player|
+    .sport
+      .sport-head
+        .name #{player.name}
+      .image.center-block
+        = image_tag(player.image_link, style: "max-width: 640px", class: 'img-responsive')
+      %p.caption #{player.position} (#{player.country})
+      %p.caption #{player.description}
+      .text-center.edit-links
+        = link_to "show", sport_club_player_path(@club.sport.id, @club.id, player)
+        |
+        = link_to "edit", edit_sport_club_player_path(@club.sport.id, @club.id, player)
+        |
+        = link_to "delete", sport_club_player_path(@club.sport.id, @club.id, player), method: :delete, data: {confirm: "Are you sure?"}
+
+/ name
+/ position
+/ country
+/ image_link
+/ description

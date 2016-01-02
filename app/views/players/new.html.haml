@@ -1,8 +1,8 @@
 .sports-wrapper.row
   %h1
-    New Sports
+    New Player
 
   = render 'form'
 
   %p
-    = link_to "Back", sports_path
+    = link_to "Back", sport_club_players_path(@sport, @club)
