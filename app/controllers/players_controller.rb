@@ -43,6 +43,15 @@ class PlayersController < ApplicationController
     end
   end
 
+  def destroy
+    @player = Player.find(params[:id])
+    @club = @player.club
+    @sport = @club.sport
+
+    @player.destroy
+    redirect_to sport_club_players_path(@sport, @club)
+  end
+
   def search
     @query = params[:query]
     @results = Player.where("name LIKE :query", query: "%#{@query}%")
