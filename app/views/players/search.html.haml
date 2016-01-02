@@ -1,0 +1,17 @@
+.sports-wrapper.row
+  %h1 Result for: `#{@query}`
+
+  -@results.each do |player|
+    .sport
+      .sport-head
+        .name #{player.name}
+      .image.center-block
+        = link_to image_tag(player.image_link, style: "max-width: 640px"), sport_club_player_path(player.club.sport.id, player.club.id, player), class: 'img-responsive'
+      %p.caption #{player.position} (#{player.country})
+      %p.caption #{player.description}
+
+/ name
+/ position
+/ country
+/ image_link
+/ description

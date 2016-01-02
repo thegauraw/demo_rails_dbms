@@ -25,10 +25,10 @@
             %li
               = link_to "Register", '#'
 
-          %form.navbar-form.navbar-right{:role => "search"}
+          %form.navbar-form.navbar-right{:role => "search", method: 'get', action: "/search"}
             .form-group
               .input-group
-                %input.form-control{:placeholder => "Search for Player...", :type => "text"}
+                %input.form-control{:placeholder => "#{@query || 'Search for Player...'}", id: 'query', name: 'query', :type => "text"}
                   %span.input-group-btn
 
                     %button.btn.btn-default{"aria-label" => "Left Align", :type => "button"}

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   get 'logout' => 'application#logout'
   get 'login' => 'application#login'
+  get 'search' => 'players#search'
 
   resources :sports do
     resources :clubs do

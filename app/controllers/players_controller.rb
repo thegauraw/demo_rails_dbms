@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate, :except => [:index, :show, :search]
 
   def index
     @club = Club.find(params[:club_id])
