@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'haml'
 gem 'bootstrap-sass'
 
-gem 'simple_form'
+gem "tzinfo-data"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
