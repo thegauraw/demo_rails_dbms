@@ -1,8 +1,12 @@
-%p
-  %strong Title:
-  ="#{@sport.title}"
+.sports-wrapper.row
+  %p
+    %strong Sport:
+    ="#{@sport.title}"
 
-%img{ src: "#{@sport.image_link}", title: @sport.description }
+  %img{ src: "#{@sport.image_link}", title: @sport.description, style: "max-width: 640px" }
 
-.text-center.edit-links
-  = link_to "Back", sports_path
+  %p.caption
+    ="#{@sport.description}"
+
+  .text-center.edit-links
+    = link_to "Back", sports_path

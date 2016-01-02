@@ -1,8 +1,18 @@
-%p
-  %strong Title:
-  ="#{@sport.title}"
+.sports-wrapper.row
+  %p
+    %strong Player:
+    ="#{@player.name}"
+  %p
+    %strong Country:
+    ="#{@player.country}"
+  %p
+    %strong Position:
+    ="#{@player.position}"
 
-%img{ src: "#{@sport.image_link}", title: @sport.description }
+  %img{ src: "#{@player.image_link}", title: @player.description, style: "max-width: 640px" }
 
-.text-center.edit-links
-  = link_to "Back", sports_path
+  %p.caption
+    ="#{@player.description}"
+
+  .text-center.edit-links
+    = link_to "Back", sport_club_players_path(@player.club.sport, @player.club)
