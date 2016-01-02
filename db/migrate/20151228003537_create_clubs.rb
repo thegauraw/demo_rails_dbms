@@ -6,7 +6,7 @@ class CreateClubs < ActiveRecord::Migration
       t.string :country
       t.string :established
       t.text :description
-      t.references :sports, index: true, foreign_key: true
+      t.references :sport, index: true, foreign_key: true
 
       t.timestamps null: false
     end

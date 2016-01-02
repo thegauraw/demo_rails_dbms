@@ -1,3 +1,4 @@
 class Club < ActiveRecord::Base
-  belongs_to :sports
+  has_many :players, dependent: :destroy
+  belongs_to :sport
 end

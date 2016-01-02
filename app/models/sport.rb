@@ -1,3 +1,4 @@
 class Sport < ActiveRecord::Base
-  validates :title, presence: true, length: {minimum: 5}
+  has_many :clubs, dependent: :destroy
+  validates :title, presence: true, length: {minimum: 4}
 end
