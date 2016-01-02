@@ -38,8 +38,16 @@ class ClubsController < ApplicationController
     else
       render 'edit'
     end
-
   end
+
+  def destroy
+    @club = Club.find(params[:id])
+    @sport = @club.sport
+
+    @club.destroy
+    redirect_to sport_clubs_path(@sport)
+  end
+
 
   private
 
