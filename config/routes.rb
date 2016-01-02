@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   get 'logout' => 'application#logout'
   get 'login' => 'application#login'
 
-  resources :sports, shallow: true do
-    resources :clubs, shallow: true do
+  resources :sports do
+    resources :clubs do
       resources :players
     end
   end

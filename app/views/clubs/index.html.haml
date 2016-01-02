@@ -8,15 +8,15 @@
       .sport-head
         .name #{club.name}
       .image.center-block
-        = link_to image_tag(club.image_link, style: "max-width: 640px"), club_players_path(club), class: 'img-responsive'
+        = link_to image_tag(club.image_link, style: "max-width: 640px"), sport_club_players_path(@sport.id, club), class: 'img-responsive'
       %p.caption #{club.country} (#{club.established})
       %p.caption #{club.description}
       .text-center.edit-links
-        = link_to "show", club_path(club)
+        = link_to "show", sport_club_path(@sport.id, club)
         |
-        = link_to "edit", edit_club_path(club)
+        = link_to "edit", edit_sport_club_path(@sport.id, club)
         |
-        = link_to "delete", club_path(club), method: :delete, data: {confirm: "Are you sure?"}
+        = link_to "delete", sport_club_path(@sport.id, club), method: :delete, data: {confirm: "Are you sure?"}
 
 
 / name

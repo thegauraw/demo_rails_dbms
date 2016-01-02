@@ -3,46 +3,38 @@ class ClubsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
 
   def index
-    binding.pry
-    @sport = Sport.find(params[:id])
+    @sport = Sport.find(params[:sport_id])
   end
 
   def show
-    binding.pry
     @club = Club.find(params[:id])
   end
 
   def new
-    binding.pry
     @sport = Sport.find(params[:sport_id])
-    @club = @sport.clubs.new
+    @club = Club.new(sport: @sport)
   end
 
   def create
-    binding.pry
-    # @sport = Sport.find(params[:sport_id])
-    # @club = @sport.clubs.create(club_params)
-    # redirect_to sport_path(@sport)
-    @club = Club.new(club_params)
-
+    @sport = Sport.find(params[:sport_id])
+    @club = @sport.clubs.new(club_params)
     if @club.save
-      redirect_to @club
+      redirect_to sport_club_path(@club.sport_id, @club)
     else
       render 'new'
     end
   end
 
   def edit
-    binding.pry
     @club = Club.find(params[:id])
+    @sport = @club.sport
   end
 
   def update
-    binding.pry
     @club = Club.find(params[:id])
 
     if @club.update(club_params)
-      redirect_to @club
+      redirect_to sport_club_path(@club.sport_id, @club)
     else
       render 'edit'
     end

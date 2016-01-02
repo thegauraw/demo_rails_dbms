@@ -1,5 +1,5 @@
 .form-wrapper{style: "width: 100%"}
-  = form_for @club do |f|
+  = form_for [@sport, @club] do |f|
     - if @club.errors.any?
       .error_msg
         %h3 #{pluralize(@club.errors.count, 'errors')} errors occurred.
