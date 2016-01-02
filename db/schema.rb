@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20151228003538) do
     t.string   "country"
     t.string   "established"
     t.text     "description"
-    t.integer  "sports_id"
+    t.integer  "sport_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "clubs", ["sports_id"], name: "index_clubs_on_sports_id"
+  add_index "clubs", ["sport_id"], name: "index_clubs_on_sport_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "name"

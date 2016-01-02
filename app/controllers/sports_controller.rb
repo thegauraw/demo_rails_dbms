@@ -1,11 +1,12 @@
-# require 'pry'
 class SportsController < ApplicationController
+
+  before_filter :authenticate, :except => [:index, :show]
+
   def new
     @sport = Sport.new
   end
 
   def create
-    binding.pry
     @sport = Sport.new(sport_params)
 
     if @sport.save
