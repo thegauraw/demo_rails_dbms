@@ -14,37 +14,39 @@
 ActiveRecord::Schema.define(version: 20151228003538) do
 
   create_table "clubs", force: :cascade do |t|
-    t.string   "name"
-    t.text     "image_link"
-    t.string   "country"
-    t.integer  "established"
-    t.text     "description"
-    t.integer  "sport_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",        limit: 255
+    t.text     "image_link",  limit: 65535
+    t.string   "country",     limit: 255
+    t.integer  "established", limit: 4
+    t.text     "description", limit: 65535
+    t.integer  "sport_id",    limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "clubs", ["sport_id"], name: "index_clubs_on_sport_id"
+  add_index "clubs", ["sport_id"], name: "index_clubs_on_sport_id", using: :btree
 
   create_table "players", force: :cascade do |t|
-    t.string   "name"
-    t.string   "position"
-    t.string   "country"
-    t.text     "image_link"
-    t.text     "description"
-    t.integer  "club_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",        limit: 255
+    t.string   "position",    limit: 255
+    t.string   "country",     limit: 255
+    t.text     "image_link",  limit: 65535
+    t.text     "description", limit: 65535
+    t.integer  "club_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "players", ["club_id"], name: "index_players_on_club_id"
+  add_index "players", ["club_id"], name: "index_players_on_club_id", using: :btree
 
   create_table "sports", force: :cascade do |t|
-    t.string   "title"
-    t.text     "image_link"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "title",       limit: 255
+    t.text     "image_link",  limit: 65535
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "clubs", "sports"
+  add_foreign_key "players", "clubs"
 end

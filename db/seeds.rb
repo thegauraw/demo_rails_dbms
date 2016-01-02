@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Sport.create!([
+  {title: "Football", image_link: "http://static1.squarespace.com/static/5163feb6e4b0928e3b20b3b1/54098b1ee4b0b1838682a701/54098b31e4b035477df28fba/1409911895462/football-fiesta-salisbury.jpg", description: "Visit Football Clubs"},
+  {title: "Cricket", image_link: "http://thumbs.dreamstime.com/z/cricket-logo-illustration-art-ball-bat-wickets-32823727.jpg", description: "Cricket is a bat-and-ball game played between two teams of 11 players each on a field at the centre of which is a rectangular 22-yard-long pitch. The game is played by 120 million players in many countries, making it the world's second most popular sport. Each team takes its turn to bat, attempting to score runs, while the other team fields. Each turn is known as an innings (used for both singular and plural)."}
+])
+Club.create!([
+  {name: "Real Madrid C.F.", image_link: "https://lh5.googleusercontent.com/-zvPqz5WM4EE/AAAAAAAAAAI/AAAAAAAFKxk/PG5_OdFEmkg/s0-c-k-no-ns/photo.jpg", country: "Spain", established: 1902, description: "Real Madrid Club de Fútbol, commonly known as Real Madrid, or simply as Real, is a professional football club based in Madrid, Spain. Founded in 1902 as Madrid Football Club, the team has traditionally worn a white home kit since inception.", sport_id: 1},
+  {name: "Manchester United F.C.", image_link: "https://lh3.googleusercontent.com/-iDzlv7IG4rY/AAAAAAAAAAI/AAAAAAACjrw/Tv17AZ4xrBw/s0-c-k-no-ns/photo.jpg", country: "England", established: 1878, description: "Manchester United Football Club is a professional football club based in Old Trafford, Greater Manchester, England, that competes in the Premier League, the top flight of English football.", sport_id: 1},
+  {name: "FC Bayern Munich", image_link: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Logo_FC_Bayern_M%C3%BCnchen.svg", country: "Germany", established: 1900, description: "Fußball-Club Bayern München e.V., commonly known as FC Bayern München, FCB, Bayern Munich, or FC Bayern, is a German sports club based in Munich, Bavaria.", sport_id: 1}
+])
+Player.create!([
+  {name: "Cristiano Ronaldo", position: "Forward", country: "Portugal", image_link: "https://lh6.googleusercontent.com/-H3PYmWMurJA/AAAAAAAAAAI/AAAAAAABOgo/c1x0jOWoX3k/s0-c-k-no-ns/photo.jpg", description: "Cristiano Ronaldo dos Santos Aveiro GOIH, known as Cristiano Ronaldo, is a Portuguese professional footballer who plays for Spanish club Real Madrid and the Portugal national team. He is a forward and serves as captain for Portugal.", club_id: 1}
+])
