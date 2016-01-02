@@ -1,0 +1,33 @@
+.form-wrapper{style: "width: 100%"}
+  = form_for @club do |f|
+    - if @club.errors.any?
+      .error_msg
+        %h3 #{pluralize(@club.errors.count, 'errors')} errors occurred.
+        %ul
+          - @club.errors.full_messages.each do |msg|
+            %li #{msg}
+    .row
+      .form-group
+        = f.text_field :name, placeholder: 'Club\'s Name', class: 'input-lg form-control'
+    .row
+      .col-lg-6.form-group
+        = f.text_field :country, placeholder: 'Country', class: 'input-lg form-control'
+      .col-lg-6.form-group
+        = f.text_field :established, placeholder: 'Established Year', class: 'input-lg form-control'
+    .row
+      .form-group.text-center
+        = f.text_field :image_link, class: 'form-control', placeholder: "Image Link"
+    .row
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: 'form-control', rows: 3
+    .row
+      .form-group.text-center
+        = f.button :submit, class: 'btn-success'
+
+
+/ name
+/ image_link
+/ country
+/ established
+/ description

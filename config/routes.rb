@@ -15,12 +15,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   get 'logout' => 'application#logout'
   get 'login' => 'application#login'
-  resources :sports
 
-  resources :sports do
-    resources :clubs
-
-    resources :clubs do
+  resources :sports, shallow: true do
+    resources :clubs, shallow: true do
       resources :players
     end
   end

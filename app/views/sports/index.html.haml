@@ -9,9 +9,11 @@
       .sport-head
         .name #{sport.title}
       .image.center-block
-        = link_to image_tag(sport.image_link, :'width' => '640px'), sport_clubs_path(sport), class: 'img-responsive'
+        = link_to image_tag(sport.image_link, style: "max-width: 640px"), sport_clubs_path(sport), class: 'img-responsive'
       %p.caption #{sport.description}
-      %p.actions
+      .text-center.edit-links
         = link_to "show", sport_path(sport)
+        |
         = link_to "edit", edit_sport_path(sport)
+        |
         = link_to "delete", sport_path(sport), method: :delete, data: {confirm: "Are you sure?"}

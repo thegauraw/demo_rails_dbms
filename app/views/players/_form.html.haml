@@ -1,0 +1,21 @@
+.form-wrapper{style: "width: 100%"}
+  = form_for @sport do |f|
+    - if @sport.errors.any?
+      .error_msg
+        %h3 #{pluralize(@sport.errors.count, 'errors')} errors occurred.
+        %ul
+          - @sport.errors.full_messages.each do |msg|
+            %li #{msg}
+    .row
+      .form-group
+        = f.text_field :title, placeholder: 'Sports Title / Category', class: 'input-lg form-control'
+    .row
+      .form-group.text-center
+        = f.text_field :image_link, class: 'form-control', placeholder: "Image Link"
+    .row
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: 'form-control', rows: 3
+    .row
+      .form-group.text-center
+        = f.button :submit, class: 'btn-success'

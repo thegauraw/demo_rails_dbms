@@ -4,7 +4,7 @@ class CreateClubs < ActiveRecord::Migration
       t.string :name
       t.text :image_link
       t.string :country
-      t.string :established
+      t.integer :established
       t.text :description
       t.references :sport, index: true, foreign_key: true
 

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151228003538) do
     t.string   "name"
     t.text     "image_link"
     t.string   "country"
-    t.string   "established"
+    t.integer  "established"
     t.text     "description"
     t.integer  "sport_id"
     t.datetime "created_at",  null: false

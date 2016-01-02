@@ -1,1 +1,26 @@
-%h1 Clubs Coming Soon!
+.sports-wrapper.row
+  %h1 #{@sport.title} Clubs
+
+  %p
+    = link_to "New #{@sport.title} Club", new_sport_club_path
+  -@sport.clubs.each do |club|
+    .sport
+      .sport-head
+        .name #{club.name}
+      .image.center-block
+        = link_to image_tag(club.image_link, style: "max-width: 640px"), club_players_path(club), class: 'img-responsive'
+      %p.caption #{club.country} (#{club.established})
+      %p.caption #{club.description}
+      .text-center.edit-links
+        = link_to "show", club_path(club)
+        |
+        = link_to "edit", edit_club_path(club)
+        |
+        = link_to "delete", club_path(club), method: :delete, data: {confirm: "Are you sure?"}
+
+
+/ name
+/ image_link
+/ country
+/ established
+/ description
